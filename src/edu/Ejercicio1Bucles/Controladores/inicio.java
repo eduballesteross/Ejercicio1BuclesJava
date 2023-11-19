@@ -1,6 +1,5 @@
 package edu.Ejercicio1Bucles.Controladores;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 import edu.Ejercicio1Bucles.Servicios.OperativaImplementacion;
@@ -15,25 +14,28 @@ public class inicio {
 		OperativaInterfaz operativaI = new OperativaImplementacion();
 		Scanner sc = new Scanner(System.in);
 		
-		double costeCompra;
-		int mesesPlazo;
-	
-		costeCompra = operativaI.CapturaDoubleCosteCompra("Introduzca el coste del producto a pagar: ", sc);
 		
+		int mesesPlazo;
+		long pagoInicial=10;
+		long totalPagado;
+	
 		mesesPlazo= operativaI.CapturaEnteroMesPlazo("Introduzca el número de meses en los que deseas pagar el producto: ", sc);
 		
-		
-		double costePlazos;
-		
-		//Hacemos que el numero double solo muestre dos decimales.
-		
-		DecimalFormat df = new DecimalFormat("#.##");
-		
-		costePlazos=(costeCompra/mesesPlazo);
-		String doubleDosDecimales = df.format(costePlazos);
-		
-		System.out.print("Deberá pagar "+ doubleDosDecimales + " euros por mes durante " +mesesPlazo+ " meses");
+	
+		for (int x = 1; x <= mesesPlazo; x++) {
+		    System.out.println("Pago número " + x);
+		    
+		    double numPago = pagoInicial;  
+		    
+		    for (int i = 1; i <= x; i++) {
+		        System.out.println("   Pago " + i + ": " + numPago + " €");
+		        numPago *= 2;  
+		        
+		        
+		    	}
+		}
+	
+		  System.out.println("El coste total ha sido de " + pagoInicial+ "€");
 		
 	}
-
 }

@@ -5,29 +5,6 @@ import java.util.Scanner;
 public class OperativaImplementacion implements OperativaInterfaz {
 
 
-public double CapturaDoubleCosteCompra(String mensaje, Scanner scanner) {
-    double numero;
-
-    do {
-        System.out.println(mensaje);
-
-        while (!scanner.hasNextDouble()) {
-            System.out.println("[ERROR] Debe ingresar un número válido.");
-            System.out.println(mensaje);
-            scanner.next();
-        }
-
-        numero = scanner.nextDouble();
-
-        if (numero <= 0) {
-            System.out.println("[ERROR] Debe ingresar un número mayor que 0.");
-        }
-
-    } while (numero <= 0);
-
-    return numero;
-	}
-
 
 public int CapturaEnteroMesPlazo(String mensaje, Scanner scanner) {
 	
@@ -51,6 +28,16 @@ public int CapturaEnteroMesPlazo(String mensaje, Scanner scanner) {
 	}while (numero<=0);
 		return numero;
 	}
+
+
+
+public void CalculaPlazos(int mesesPlazos) {
+	
+	for(int x = 10; x<mesesPlazos;x*=2 ) 
+	{
+		System.out.println(x);
+	}
+}
 	
 
 }
